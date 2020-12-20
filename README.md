@@ -54,7 +54,8 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|-------------------|
 | Jump Box |       Yes           |    66.232.202.0/24   |       SSH         |
 | Web 1-3  |       Yes           |     10.0.0.7         |       HTTP        |
-| ELK      |       Yes           |     10.0.0.7         |       HTTP        |
+| ELK      |       Yes           |     10.0.0.7         |       SSH         |
+| ELK      |       Yes           |    66.232.202.0/24   |       HTTP        |
 
 ### Elk Configuration
 
@@ -73,10 +74,14 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
-
+- 10.0.0.9
+- 10.0.0.4
+- 10.0.0.10
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeat:
+  - Web-1, Web-2, Web-3
+- Metricbeat:
+  - Elk
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
