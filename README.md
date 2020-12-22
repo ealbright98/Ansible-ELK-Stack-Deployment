@@ -84,19 +84,30 @@ We have installed the following Beats on these machines:
   - Elk
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- The filebeat is expected to monitor the log files stored on each webserver.  Events that are recorded from the DVWA server will be transferred to Elasticsearch.
+- The Metricbeat is expected to relay to elasticsearch the performance statistics of the ELK server. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the hosts file to /etc/ansible.
+- Update the hosts file to include:
+  - A group notated by [ groupname ] 
+  - A list of machine IP addresses with the path to the python interpreter
+- Run the playbook, and navigate to each VM via SSH to check that the installation worked as expected.  The webgui for the ELK stack can also be checked by going to:
+  - http://[IP_Address_ELK_VM]:5061/app/kibana
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- To use this repo to build your own machine do the following:
+  - Use git to pull a copy of the repo
+    git pull https://github.com/ealbright98/Ansible-ELK-Stack-Deployment.git
+  - Copy the config files to the ansible config
+    cp ./Ansible-Elk-Stack-Deployment/Configs/. /etc/ansible/
+  - Copy the playbooks to an accessible folder:
+    cp ./Ansible-Elk-Stack-Deployment/Playbooks/. /etc/ansible/files/
+  - Use your favorite text editor to update the hosts file
+    sudo nano /etc/ansible/hosts
+  - Let Ansible do its job and provisision the machines
+    ansible-playbook /etc/ansible/etc/files/install-elk.yml
+    ansible-playbook /etc/ansible/etc/files/filebeat-playbook.yml
+    ansible-playbook /etc/ansible/etc/files/metricbeat-playbook.yml
