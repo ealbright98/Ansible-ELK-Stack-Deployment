@@ -100,14 +100,14 @@ SSH into the control node and follow the steps below:
 
 - To use this repo to build your own machine do the following:
   - Use git to pull a copy of the repo
-      git pull https://github.com/ealbright98/Ansible-ELK-Stack-Deployment.git
+      'git pull https://github.com/ealbright98/Ansible-ELK-Stack-Deployment.git'
   - Copy the config files to the ansible config
-      cp ./Ansible-Elk-Stack-Deployment/Configs/. /etc/ansible/
+      'cp ./Ansible-Elk-Stack-Deployment/Configs/. /etc/ansible/
   - Copy the playbooks to an accessible folder:
-      cp ./Ansible-Elk-Stack-Deployment/Playbooks/. /etc/ansible/files/
+      'cp ./Ansible-Elk-Stack-Deployment/Playbooks/. /etc/ansible/files/'
   - Use your favorite text editor to update the hosts file
-      sudo nano /etc/ansible/hosts
+      'sudo nano /etc/ansible/hosts'
   - Let Ansible do its job and provisision the machines
-      ansible-playbook /etc/ansible/etc/files/install-elk.yml
-      ansible-playbook /etc/ansible/etc/files/filebeat-playbook.yml
-      ansible-playbook /etc/ansible/etc/files/metricbeat-playbook.yml
+      'ansible-playbook /etc/ansible/etc/files/install-elk.yml'
+      'ansible-playbook /etc/ansible/etc/files/filebeat-playbook.yml'
+      'ansible-playbook /etc/ansible/etc/files/metricbeat-playbook.yml'
